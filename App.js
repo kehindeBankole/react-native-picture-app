@@ -25,6 +25,7 @@ import {
   QueryClient,
   QueryClientProvider,
 } from "react-query";
+import Cam from "./screens/Cam";
 const Tab = createBottomTabNavigator();
 const queryClient = new QueryClient();
 function HomeScreen() {
@@ -109,7 +110,7 @@ function MyTabs() {
           tabBarLabelStyle: { display: "none" },
           tabBarShowLabel: false,
         }}
-        component={SettingsScreen}
+        component={Cam}
       />
       <Tab.Screen
         name="Settin"
