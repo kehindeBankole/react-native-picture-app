@@ -26,6 +26,7 @@ import {
   QueryClientProvider,
 } from "react-query";
 import Cam from "./screens/Cam";
+import Todo from "./screens/Todo";
 const Tab = createBottomTabNavigator();
 const queryClient = new QueryClient();
 function HomeScreen() {
@@ -113,7 +114,7 @@ function MyTabs() {
         component={Cam}
       />
       <Tab.Screen
-        name="Settin"
+        name="todo"
         options={{
           tabBarLabel: "H",
           headerShown: false,
@@ -128,7 +129,7 @@ function MyTabs() {
           tabBarLabelStyle: { display: "none" },
           tabBarShowLabel: false,
         }}
-        component={SettingsScreen}
+        component={Todo}
       />
       <Tab.Screen
         name="Setngs"
@@ -151,7 +152,11 @@ function MyTabs() {
     </Tab.Navigator>
   );
 }
-
+const config = {
+  dependencies: {
+    "linear-gradient": require("expo-linear-gradient").LinearGradient,
+  },
+};
 export default function App() {
   let [fontsLoaded] = useFonts({
     Inter_100Thin,
@@ -169,7 +174,7 @@ export default function App() {
   }
   return (
     <QueryClientProvider client={queryClient}>
-      <NativeBaseProvider>
+      <NativeBaseProvider config={config}>
         <NavigationContainer>
           <StatusBar style="auto" />
           <MyTabs />
